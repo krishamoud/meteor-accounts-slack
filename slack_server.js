@@ -36,7 +36,7 @@ var getAccessToken = function (query) {
           client_id: config.clientId,
           client_secret: OAuth.openSecret(config.secret),
   //        redirect_uri: Meteor.absoluteUrl("_oauth/slack?close")
-          redirect_uri: OAuth._redirectUri('slack', config),
+          redirect_uri: query.redirectUri ? query.redirectUri : OAuth._redirectUri('slack', config),
           state: query.state
         }
       });
