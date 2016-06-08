@@ -33,6 +33,7 @@ Slack.requestCredential = function (options, credentialRequestCompleteCallback) 
   var loginUrl =
         'https://slack.com/oauth/authorize' +
         '?client_id=' + config.clientId +
+        ((options && options.team) ? '&team=' + options.team : '') +
         '&response_type=code' +
         '&scope=' + flatScope +
         '&redirect_uri=' + OAuth._redirectUri('slack', config) +
